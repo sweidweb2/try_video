@@ -7,9 +7,8 @@ plugins {
 
 android {
     namespace = "com.example.try_video_1"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 33
     ndkVersion = flutter.ndkVersion
-    compileSdkVersion 33
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -36,7 +35,10 @@ android {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.getByName("debug")
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
 
         }
     }
